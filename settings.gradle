@@ -1,1 +1,1 @@
-include ':app', ':rxcarouselview'
+include ':app'
