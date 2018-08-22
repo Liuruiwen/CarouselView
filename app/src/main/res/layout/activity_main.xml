@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ruiwenliu.carouselview.MainActivity">
+
+   <com.ruiwenliu.rxcarouselview.CarouselView
+       android:layout_width="match_parent"
+       android:id="@+id/act_main_cv"
+       android:layout_height="250dp"/>
+
+   <Button
+       android:layout_below="@id/act_main_cv"
+       android:id="@+id/tv_start"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="开始轮播"
+       />
+
+   <Button
+       android:layout_toRightOf="@id/tv_start"
+       android:layout_below="@id/act_main_cv"
+       android:id="@+id/tv_stop"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="停止轮播"
+       />
+
+   <Button
+       android:layout_toRightOf="@id/tv_stop"
+       android:layout_below="@id/act_main_cv"
+       android:id="@+id/btn_dot_postion"
+       android:text="设置小圆点位置"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       />
+
+   <EditText
+       android:layout_below="@id/btn_dot_postion"
+       android:layout_toRightOf="@id/btn_time_set"
+       android:id="@+id/et_time"
+       android:hint="请输入轮播时间"
+       android:inputType="number"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
+
+      <Button
+          android:layout_below="@id/btn_dot_postion"
+          android:layout_alignRight="@id/btn_time_set"
+          android:id="@+id/btn_time_set"
+          android:text="设置轮播时间"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          />
+
+   <Button
+       android:layout_below="@id/et_time"
+       android:id="@+id/btn_reset"
+       android:text="重置view数据"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       />
+   <Button
+       android:layout_below="@id/et_time"
+       android:layout_toRightOf="@id/btn_reset"
+       android:id="@+id/btn_carousel_view"
+       android:text="View轮播"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       />
+
+
+</RelativeLayout>
