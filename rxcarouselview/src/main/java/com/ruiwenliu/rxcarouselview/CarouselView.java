@@ -71,6 +71,7 @@ public class CarouselView<T extends View> extends RelativeLayout {
     @Override
     protected void onDetachedFromWindow() {
         stopCarousel();
+        mDisposable=null;
         if (mAdapter != null) {
             mAdapter.setOnItemClick(null);
         }

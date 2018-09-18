@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -132,13 +133,10 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     private ImageView setDataToPhotoView(final String url) {
+       ImageView imageView = (ImageView) LayoutInflater.from(this).inflate(R.layout.item_image, null);
 
-        RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,800);//这里最好写成view的布局，这里为了方便简写
-        ImageView  img=new ImageView(this);
-        img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        img.setLayoutParams(layoutParams);
-        Glide.with(this).load(url).into(img);
-        return img;
+        Glide.with(this).load(url).into(imageView);
+        return imageView;
     }
 
 }
