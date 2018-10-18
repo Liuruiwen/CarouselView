@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
      * @param url  地址这些数据应该是后台传给你的，这里只是做标识用
      * @return
      */
-    private ImageView setDataToPhotoView(final String url) {
+    private ImageView setDataToPhotoView( String url) {
        ImageView imageView = (ImageView) LayoutInflater.from(this).inflate(R.layout.item_image, null);
 
         Glide.with(this).load(url).into(imageView);
