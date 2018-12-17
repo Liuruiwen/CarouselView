@@ -1,7 +1,7 @@
 # CarouselView
 CarouselView 是一个自定义view,是rxJava +viewpager 组成万能的view轮播控件
 这是依赖
-    implementation 'com.github.Liuruiwen:CarouselView:1.1.2'
+    implementation 'com.github.Liuruiwen:CarouselView:1.1.3'
 效果展示，如图所示
 <div>
    <img src="https://github.com/Liuruiwen/CarouselView/blob/master/picture/device-2018-08-23-140144.gif" width=800 height=800/>
