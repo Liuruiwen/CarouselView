@@ -3,6 +3,7 @@ package com.ruiwenliu.rxcarouselview;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -256,8 +258,17 @@ public class CarouselView<T extends View> extends RelativeLayout {
     public void startCarousel() {
         if (viewPager != null && mAdapter != null) {
             if (mDisposable == null || mDisposable.isDisposed()) {
-                mDisposable = Observable.interval(carouselTime, carouselTime, TimeUnit.SECONDS)  // carouselTimes的延迟，carouselTimes的循环时间
-                        .subscribeOn(AndroidSchedulers.mainThread())
+
+
+
+
+                mDisposable =  Flowable.interval(carouselTime, TimeUnit.SECONDS)
+                        .doOnNext(new Consumer<Long>() {
+                            @Override
+                            public void accept(@NonNull Long aLong) throws Exception {
+//                                Log.e(TAG, "accept: doOnNext : "+aLong );
+                            }
+                        })
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Consumer<Long>() {
                             @Override
@@ -272,6 +283,22 @@ public class CarouselView<T extends View> extends RelativeLayout {
                                 }
                             }
                         });
+//                mDisposable = Observable.interval(carouselTime, carouselTime, TimeUnit.SECONDS)  // carouselTimes的延迟，carouselTimes的循环时间
+//                        .subscribeOn(AndroidSchedulers.mainThread())
+//                        .observeOn(AndroidSchedulers.mainThread())
+//                        .subscribe(new Consumer<Long>() {
+//                            @Override
+//                            public void accept(@NonNull Long aLong) throws Exception {
+//                                isStart = true;
+//                                int currentIndex = viewPager.getCurrentItem();
+//                                if (++currentIndex == mAdapter.getCount()) {
+//                                    viewPager.setCurrentItem(0);
+//
+//                                } else {
+//                                    viewPager.setCurrentItem(currentIndex, true);
+//                                }
+//                            }
+//                        });
             }
         }
     }
