@@ -283,22 +283,6 @@ public class CarouselView<T extends View> extends RelativeLayout {
                                 }
                             }
                         });
-//                mDisposable = Observable.interval(carouselTime, carouselTime, TimeUnit.SECONDS)  // carouselTimes的延迟，carouselTimes的循环时间
-//                        .subscribeOn(AndroidSchedulers.mainThread())
-//                        .observeOn(AndroidSchedulers.mainThread())
-//                        .subscribe(new Consumer<Long>() {
-//                            @Override
-//                            public void accept(@NonNull Long aLong) throws Exception {
-//                                isStart = true;
-//                                int currentIndex = viewPager.getCurrentItem();
-//                                if (++currentIndex == mAdapter.getCount()) {
-//                                    viewPager.setCurrentItem(0);
-//
-//                                } else {
-//                                    viewPager.setCurrentItem(currentIndex, true);
-//                                }
-//                            }
-//                        });
             }
         }
     }
